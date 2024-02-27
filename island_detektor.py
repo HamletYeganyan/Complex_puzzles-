@@ -1,5 +1,46 @@
 import random
 import random
+def force_loop(force):
+    for i in range(len(force)):
+        for j in range(len(force[i])):
+            for k in range(len(force[force[i][j]])):
+                if force[force[i][j]][k] not in force[i]:
+                     force[i].append(force[force[i][j]][k])
+    return force
+def island_logic(n):
+    flag = []
+    for j in range(8):
+            if dict_matrix[n][j] == '1':
+                flag.append(CRD(n,j))
+    return flag
+def CRD(I,J):
+    if J == 0:
+        return [crd[I][0], crd[I][1] - 1]
+    if J == 1:
+        return [crd[I][0] + 1, crd[I][1] - 1]
+    if J == 2:
+        return [crd[I][0] + 1, crd[I][1]]
+    if J == 3:
+        return [crd[I][0] + 1, crd[I][1] + 1]
+    if J == 4:
+        return [crd[I][0], crd[I][1] + 1]
+    if J == 5:
+        return [crd[I][0] - 1, crd[I][1] + 1]
+    if J == 6:
+        return [crd[I][0] - 1, crd[I][1]]
+    if J == 7:
+        return [crd[I][0] - 1, crd[I][1] - 1]
+def variables():
+    global _1,_2,_3,_4,_5,_6,_7,_8, one
+    _1 = []
+    _2 = []
+    _3 = []
+    _4 = []
+    _5 = []
+    _6 = []
+    _7 = []
+    _8 = []
+    one = []
 # random map generator by Rova 
 y = 10 
 x = 10 
@@ -47,17 +88,8 @@ for k in range(len(list1)):
             obe = list(list1[l][0])
             obe.append('0')
             list1[l] = [''.join(obe)]
-# sahmanum enq yuraqancur '1' in shrjapakox 8 nshannery sksac szaxic jamslakin hakarak    
-_1 = []
-_2 = []
-_3 = []
-_4 = []
-_5 = []
-_6 = []
-_7 = []
-_8 = []
-one = []
-
+# sahmanum enq yuraqancur '1' in shrjapakox 8 nshannery sksac szaxic jamslakin hakarak
+variables()    
 for hi in range(len(list1)):
     for le in range(len(list1[0][0])):
         if list1[hi][0][le] == '1':
@@ -126,30 +158,7 @@ for pz , zp in zip(name, one):
 for vp, pv in zip(pra, one):
     dict_pra[vp] = pv
 # gtnum enq amen andamin shrjapatox 1 eri koordinatnery
-def CRD(I,J):
-    if J == 0:
-        return [crd[I][0], crd[I][1] - 1]
-    if J == 1:
-        return [crd[I][0] + 1, crd[I][1] - 1]
-    if J == 2:
-        return [crd[I][0] + 1, crd[I][1]]
-    if J == 3:
-        return [crd[I][0] + 1, crd[I][1] + 1]
-    if J == 4:
-        return [crd[I][0], crd[I][1] + 1]
-    if J == 5:
-        return [crd[I][0] - 1, crd[I][1] + 1]
-    if J == 6:
-        return [crd[I][0] - 1, crd[I][1]]
-    if J == 7:
-        return [crd[I][0] - 1, crd[I][1] - 1]
 # bararanic vercnum enq 1 i arjeqy ev texadrum verevi funkciai mej
-def island_logic(n):
-    flag = []
-    for j in range(8):
-            if dict_matrix[n][j] == '1':
-                flag.append(CRD(n,j))
-    return flag
 # sahmanum enq nor cucakner
 frag = [] # hamapatasxanum e crd cucaki andamnerin
 deep = [] # aystex grvum e skzbum 1 i indexy crd cucakum heto stugvum e ir harevanneri indexnery [ira index, harevani index]
@@ -168,86 +177,8 @@ for t in range(len(deep)):
             force[n].append(deep[t][1])
 
 # force i mej havaqvum en bolor liarjeq kxzinery u apahovutyan hamar kody krknvum e
-for i in range(len(force)):
-    for j in range(len(force[i])):
-        for k in range(len(force[force[i][j]])):
-            if force[force[i][j]][k] not in force[i]:
-                force[i].append(force[force[i][j]][k])
-for i in range(len(force)):
-    for j in range(len(force[i])):
-        for k in range(len(force[force[i][j]])):
-            if force[force[i][j]][k] not in force[i]:
-                force[i].append(force[force[i][j]][k])
-for i in range(len(force)):
-    for j in range(len(force[i])):
-        for k in range(len(force[force[i][j]])):
-            if force[force[i][j]][k] not in force[i]:
-                force[i].append(force[force[i][j]][k])
-for i in range(len(force)):
-    for j in range(len(force[i])):
-        for k in range(len(force[force[i][j]])):
-            if force[force[i][j]][k] not in force[i]:
-                force[i].append(force[force[i][j]][k])
-for i in range(len(force)):
-    for j in range(len(force[i])):
-        for k in range(len(force[force[i][j]])):
-            if force[force[i][j]][k] not in force[i]:
-                force[i].append(force[force[i][j]][k])
-for i in range(len(force)):
-    for j in range(len(force[i])):
-        for k in range(len(force[force[i][j]])):
-            if force[force[i][j]][k] not in force[i]:
-                force[i].append(force[force[i][j]][k])
-for i in range(len(force)):
-    for j in range(len(force[i])):
-        for k in range(len(force[force[i][j]])):
-            if force[force[i][j]][k] not in force[i]:
-                force[i].append(force[force[i][j]][k])
-for i in range(len(force)):
-    for j in range(len(force[i])):
-        for k in range(len(force[force[i][j]])):
-            if force[force[i][j]][k] not in force[i]:
-                force[i].append(force[force[i][j]][k])
-for i in range(len(force)):
-    for j in range(len(force[i])):
-        for k in range(len(force[force[i][j]])):
-            if force[force[i][j]][k] not in force[i]:
-                force[i].append(force[force[i][j]][k])
-for i in range(len(force)):
-    for j in range(len(force[i])):
-        for k in range(len(force[force[i][j]])):
-            if force[force[i][j]][k] not in force[i]:
-                force[i].append(force[force[i][j]][k])
-for i in range(len(force)):
-    for j in range(len(force[i])):
-        for k in range(len(force[force[i][j]])):
-            if force[force[i][j]][k] not in force[i]:
-                force[i].append(force[force[i][j]][k])
-for i in range(len(force)):
-    for j in range(len(force[i])):
-        for k in range(len(force[force[i][j]])):
-            if force[force[i][j]][k] not in force[i]:
-                force[i].append(force[force[i][j]][k])
-for i in range(len(force)):
-    for j in range(len(force[i])):
-        for k in range(len(force[force[i][j]])):
-            if force[force[i][j]][k] not in force[i]:
-                force[i].append(force[force[i][j]][k])
-for i in range(len(force)):
-    for j in range(len(force[i])):
-        for k in range(len(force[force[i][j]])):
-            if force[force[i][j]][k] not in force[i]:
-                force[i].append(force[force[i][j]][k])
-for i in range(len(force)):
-    for j in range(len(force[i])):
-        for k in range(len(force[force[i][j]])):
-            if force[force[i][j]][k] not in force[i]:
-                force[i].append(force[force[i][j]][k])
-for i in range(len(force)):
-    for j in range(len(force[i])):
-        for k in range(len(force[force[i][j]])):
-            if force[force[i][j]][k] not in force[i]:
-                force[i].append(force[force[i][j]][k])
+for i in range(10):
+    force_loop(force)
 
 for f in range(len(force)):
     force[f] = sorted(force[f])
@@ -257,5 +188,6 @@ for d in force.copy():
 
 print('islands =' , len(force))
 print(force)
+
 
 
